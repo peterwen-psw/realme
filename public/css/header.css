@@ -1,0 +1,204 @@
+header {
+  width: 100%;
+  height: 60PX;
+  background-color: #fff;
+  z-index: 20;
+  position: fixed;
+  top: 0;
+}
+
+header a {
+  color: #000000;
+}
+
+header .wrapper {
+  width: 1200PX;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .wrapper .logo {
+  width: 80PX;
+  height: 24PX;
+  background-image: url(../images/logo.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  display: block;
+}
+
+header .wrapper .nav ul {
+  width: 880PX;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14PX;
+}
+
+header .wrapper .nav > ul > li a:hover {
+  color: #ffc960;
+}
+
+header .wrapper .nav-right > ul > li a:hover {
+  color: #ffc960;
+}
+
+header .wrapper .nav-right .icon-user {
+  width: 30PX;
+  height: 30PX;
+  display: block;
+  background-image: url(../images/user.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+}
+
+header .wrapper .nav-right {
+  display: flex;
+  align-items: center;
+  height: 30PX;
+}
+
+header .wrapper .nav-right > ul.visible {
+  visibility: visible;
+}
+
+header .wrapper .nav-right ul {
+  position: absolute;
+  top: 44PX;
+  right: 0;
+  width: 180PX;
+  z-index: 10;
+  visibility: hidden;
+  box-sizing: border-box;
+  padding: 10PX 20PX;
+  background-color: #fff;
+}
+
+header .wrapper .nav-right > ul > li {
+  width: 100%;
+  height: 32PX;
+  cursor: pointer;
+}
+
+header .wrapper .nav > ul > li {
+  height: 60PX;
+  display: flex;
+  align-items: center;
+}
+
+header .wrapper .nav .nav-submenu {
+  position: absolute;
+  left: 0;
+  margin-left: 50%;
+  top: 60PX;
+  width: 2560PX;
+  background: #fff;
+  transform: translate(-50%, 0);
+  visibility: hidden;
+  z-index: 8;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  padding: 30PX 0;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+header .wrapper .nav .nav-submenu.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper {
+  width: 1200PX;
+  padding-left: 0;
+  position: relative;
+  display: flex;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper .submenu-tabs {
+  width: 220PX;
+  color: black;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper .submenu-tabs .secondary-menu {
+  display: flex;
+  align-items: center;
+  height: 40PX;
+  cursor: pointer;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper .submenu-tabs .secondary-menu.hover {
+  font-weight: 700;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper .submenu-tabs .secondary-menu i {
+  background-image: url(../images/ic_right.svg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: top center;
+  width: 20PX;
+  height: 20PX;
+  visibility: hidden;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper .submenu-tabs .secondary-menu i.visible {
+  visibility: visible;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper .submenu-container {
+  width: 100%;
+  background-color: #fff;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper .submenu-container img {
+  width: 80PX;
+  height: 80PX;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper .submenu-container ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper .submenu-container ul > li {
+  width: 300PX;
+  height: 100PX;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10PX 0;
+  display: flex;
+  align-items: center;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-wrapper .submenu-container ul > li > a {
+  text-align: center;
+  font-size: 14PX;
+  display: flex;
+  align-items: center;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20PX;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-info .nav-submenu-price {
+  color: #dd0b25;
+  font-weight: bold;
+}
+
+header .wrapper .nav .nav-submenu .nav-submenu-info p {
+  line-height: 18PX;
+  margin-top: 4PX;
+  color: #000;
+  font-size: 14PX;
+  text-align: left;
+  width: 175PX;
+}

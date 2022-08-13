@@ -1,0 +1,351 @@
+section {
+  background-color: #f5f5f5;
+}
+
+section .swiper {
+  margin: 60PX auto;
+  /* width: 1500PX; */
+  width: 100%;
+  height: 500PX;
+  position: relative;
+  background-color: #fff;
+}
+
+section .swiper .screen {
+  width: 1500PX;
+  height: 500PX;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+section .swiper .screen > ul {
+  width: 15000PX;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+section .swiper .screen > ul > li {
+  width: 1500PX;
+  height: 500PX;
+  float: left;
+}
+
+section .swiper .screen > ul > li img {
+  width: 1500PX;
+  height: 500PX;
+}
+
+section .swiper .arr span {
+  position: absolute;
+  left: 5PX;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30PX;
+  width: 68PX;
+  height: 68PX;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: '黑体';
+  line-height: 68PX;
+  color: #d2d2d2;
+}
+
+section .swiper .arr #right {
+  right: 5PX;
+  left: auto;
+}
+
+section .swiper .screen ol {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  bottom: 20PX;
+  text-align: center;
+}
+
+section .swiper .screen ol li {
+  width: 7PX;
+  height: 7PX;
+  border-radius: 50%;
+  background-color: #f4f4f4;
+  float: left;
+  margin-right: 10PX;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+section .swiper .screen ol li.current {
+  background-color: #4a4a4a;
+}
+
+section .sec-wrapper {
+  width: 1200PX;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 40PX;
+}
+
+section .sec-wrapper > .slider-arr {
+  width: 1340PX;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 265PX;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+section .sec-wrapper > .slider-arr > span {
+  width: 48PX;
+  height: 48PX;
+  border-radius: 50%;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  font-size: 25PX;
+  color: #6f6f6f;
+  background-color: #fff;
+  text-align: center;
+  line-height: 48PX;
+}
+
+section .sec-wrapper > .slider-arr > span:hover {
+  background-color: #d0d0d0;
+}
+
+section .sec-wrapper .sec-title {
+  font-size: 24PX;
+  line-height: 36PX;
+  margin-bottom: 25PX;
+  font-weight: 700;
+}
+
+section .sec-wrapper .sec-container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  height: 380PX;
+  overflow: hidden;
+}
+
+section .sec-wrapper .sec-container > ul {
+  display: flex;
+  position: absolute;
+  left: 0;
+}
+
+section .sec-wrapper .sec-container > ul > li {
+  width: 300PX;
+  height: 380PX;
+}
+
+section .sec-wrapper .sec-container > ul > li > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 288PX;
+  height: 320PX;
+  padding-top: 60PX;
+  background-color: #fff;
+  text-align: center;
+  margin-right: 12PX;
+}
+
+section .sec-wrapper .sec-container > ul > li > a > .container-content > h3 {
+  font-size: 16PX;
+  line-height: 20PX;
+  margin-top: 25PX;
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+section .sec-wrapper .sec-container > ul > li > a > .container-content > p {
+  font-size: 14PX;
+  line-height: 16PX;
+  margin: 10PX 0 20PX;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+section .sec-wrapper .sec-container > ul > li > a > .container-price {
+  font-size: 18PX;
+  line-height: 20PX;
+  color: #dd0b25;
+  font-weight: 700;
+}
+
+section .sec-wrapper .sec-container > ul > li > a > .container-price del {
+  color: #777;
+  font-size: 14PX;
+  font-weight: normal;
+}
+
+section .sec-wrapper .sec-container .container-image > img {
+  width: 160PX;
+  height: 160PX;
+}
+
+section .sec-wrapper .sec-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25PX;
+}
+
+section .sec-wrapper .sec-header .sec-headerL {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section .sec-wrapper .sec-header .sec-headerL > ul {
+  display: flex;
+  margin-left: 60PX;
+  align-items: center;
+}
+
+section .sec-wrapper .sec-header .sec-headerL > ul > li {
+  cursor: pointer;
+  position: relative;
+  font-size: 16PX;
+  line-height: 24PX;
+  margin: 0 20PX;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+section .sec-wrapper .sec-header .sec-headerL > ul > li.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4PX;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32PX;
+  height: 2PX;
+  background-color: #000;
+}
+
+section .sec-wrapper .sec-header .sec-headerL > h2 {
+  margin: 0;
+}
+
+section .hot {
+  width: 1200PX;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 40PX;
+}
+
+section .hot > h2 {
+  font-size: 24PX;
+  line-height: 36PX;
+  margin-bottom: 25PX;
+  font-weight: 700;
+}
+
+section .hot .hot-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+section .hot .hot-content > a {
+  margin-bottom: 16PX;
+  display: block;
+  position: relative;
+  width: 592PX;
+  height: 320PX;
+  overflow: hidden;
+}
+
+section .hot .hot-content > a > img {
+  width: 592PX;
+  height: 320PX;
+}
+
+section .hot .hot-content > a .img-content {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  padding: 40PX 80PX;
+}
+
+section .hot .hot-content > a .img-content.font-white {
+  color: white;
+}
+
+section .hot .hot-content > a .img-content > h3 {
+  font-size: 22PX;
+  line-height: 28PX;
+  margin-bottom: 10PX;
+}
+
+section .hot .hot-content > a .img-content > p {
+  font-size: 14PX;
+  line-height: 16PX;
+}
+
+section .big-banner {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+section .big-banner > a > img {
+  width: 100%;
+}
+
+section .big-banner .big-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+section .big-banner .big-content > h2 {
+  font-size: 44PX;
+  line-height: 54PX;
+  margin-bottom: 40PX;
+  font-weight: 400;
+}
+
+section .big-banner .big-content > .content-btn {
+  font-size: 16PX;
+  line-height: 16PX;
+}
+
+section .big-banner .big-content > .content-btn:hover > a {
+  background-color: #fff;
+  color: #000;
+}
+
+section .big-banner .big-content > .content-btn > a {
+  border: 1PX solid #fff;
+  color: #fff;
+  font-size: 16PX;
+  line-height: 44PX;
+  text-align: center;
+  padding: 0 33PX;
+  background: 0 0;
+  display: inline-block;
+}
+
+.plate-hover {
+  transition: all 0.3s;
+  transform: translate3d(0, 0, 0);
+}
+
+.plate-hover:hover {
+  margin-top: -3PX;
+}

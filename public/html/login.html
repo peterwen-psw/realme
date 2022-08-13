@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/resset.css">
+</head>
+
+<body>
+  <div class="register">
+    <div class="realme">
+      <a href="../html/index.html"><img src="../images/login-logo.png" alt=""></a>
+    </div>
+    <div class="register-container">
+      <h1 class="title">登录账号</h1>
+      <div class="register-form">
+        <div class="register-form-account">
+          <input type="text" placeholder="请输入用户名/手机号/邮箱" id="user">
+          <span id="user_span"></span>
+        </div>
+        <div class="register-form-pwd">
+          <input type="password" placeholder="请输入密码" id="pwd">
+          <span id="pwd_span"></span>
+          <p>忘记密码</p>
+        </div>
+        <div class="prompt"></div>
+        <div class="register-form-login">
+          <input type="submit" value="登录" id="btn">
+          <a href="../html/register.html">注册账号</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</body>
+<script type="module">
+    import { setCookie, getCookie } from "../js/cookie.js";
+    import { verify } from "../js/verify.js";
+    import { next } from "../js/findEle.js";
+    import { debounceFn } from "../js/tool-2.js";
+    import { login } from "../js/interface.js";
+    import { paramsParse } from "../js/url.js";
+    
+
+    var userInp = document.getElementById("user");
+    var userSpan = document.getElementById("user_span");
+
+    var pwdInp = document.getElementById("pwd");
+    var pwdSpan = document.getElementById("pwd_span");
+
+    var btn = document.getElementById("btn");
+
+    btn.addEventListener("click", debounceFn(loginHandler));
+
+    function loginHandler() {
+        // 用户输入的用户和密码
+        var user = userInp.value; // a123123
+        var pwd = pwdInp.value;
+
+        // 用户输入的用户和密码 和 后台对应的用户名和密码(cookie模拟) 做对比
+        if (user && pwd) {
+            //数据注册成功  => 通过后台提供的接口  => 存储数据库
+            login({ user, pwd }).then(result => {
+                var { status, message } = result;
+                if (status) {
+                    // alert(message);
+                    setCookie("lgc", user, 31 * 24 * 60 * 60 * 1000);
+
+                    var { returnUrl } = paramsParse();
+                    if (returnUrl) {
+                        location.href = decodeURIComponent(returnUrl);
+                    } else {
+                        location.href = "index.html";
+                    }
+
+                } else {
+                    alert(message);
+                }
+            }).catch(err => {
+                throw err;
+            })
+
+        } else {
+            alert("请输入用户名和密码");
+        }
+    }
+
+</script>
+
+</html>

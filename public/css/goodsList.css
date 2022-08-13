@@ -1,0 +1,56 @@
+.wrapper-bar{
+    width: 1200px;
+    margin: 0 auto;
+}
+.wrapper-bar .sec-title{
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+.wrapper-bar .sec-container{
+    overflow: hidden;
+
+}
+.wrapper-bar .sec-container ul{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+.wrapper-bar .sec-container ul li{
+    width: 285px;
+    height: 400px;
+    background: #fff;
+    margin: 0 10px 20px;
+    transform: translate3d(0,0,0);
+    transition: all ease-in-out .3s;
+}
+.wrapper-bar .sec-container ul li a{
+    position: relative;
+    display: block;
+    padding: 50px 20px 0;
+    text-align: center;
+    color: #000;
+}
+.wrapper-bar .sec-container ul li a .realme-phones-image{
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+}
+.wrapper-bar .sec-container ul li a .realme-phones-image img{
+    width: 100%;
+    transform: translate3d(0,0,0);
+}
+.wrapper-bar .sec-container ul li a .realme-phones-name{
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 40px;
+}
+.wrapper-bar .sec-container ul li a .realme-phones-price{
+    font-size: 18px;
+    line-height: 24px;
+    color: #d0021b;
+    margin-top: 7px;
+}
+
+
+

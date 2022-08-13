@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/register.css">
+  <link rel="stylesheet" href="../css/resset.css">
+</head>
+
+<body>
+  <div class="register">
+    <div class="register-container">
+      <h1 class="title">注册账号</h1>
+      <div class="register-form">
+        <div class="register-form-account">
+          <input type="text" placeholder="请输入用户名" id="user" verify="user">
+          <span id="user_span"></span>
+        </div>
+        <div class="register-form-pwd">
+          <input type="password" placeholder="请输入密码" id="pwd" verify="pwd">
+          <span id="pwd_span"></span>
+          <p>密码由 6-16 位数字、字母或符号组成、至少包含两种字符</p>
+        </div>
+        <div class="register-form-phone">
+          <input type="text" placeholder="请输入手机号" id="phone" verify="phone">
+          <span id="phone_span"></span>
+          <p>手机号码由 11 位数字组成</p>
+        </div>
+        <div class="register-form-email">
+          <input type="text" placeholder="请输入邮箱" id="email" verify="email">
+          <span id="email_span"></span>
+          <p>邮箱格式为: 登录名@主机名.域名</p>
+        </div>
+        <input type="submit" value="注册" id="btn">
+      </div>
+
+    </div>
+  </div>
+</body>
+<script type="module">
+  import { setCookie } from "../js/cookie.js";
+  import { verify } from "../js/verify.js";
+  import { next } from "../js/findEle.js";
+  import { debounceFn } from "../js/tool-2.js"
+  import { isExistUser, register } from "../js/interface.js";
+
+  var userInp = document.getElementById("user");
+  var pwdInp = document.getElementById("pwd");
+  var phoneInp = document.getElementById("phone");
+  var emailInp = document.getElementById("email");
+  var btn = document.getElementById("btn");
+
+  var form = document.querySelector("register-form");
+
+  var isUserOk = false;
+  var isPwdOk = false;
+  var isPhoneOk = false;
+  var isEmailOk = false;
+
+  userInp.addEventListener("blur", focusHandler);
+  pwdInp.addEventListener("blur", focusHandler);
+  phoneInp.addEventListener("blur", focusHandler);
+  emailInp.addEventListener("blur", focusHandler);
+
+  // 点击提交时时验证
+  btn.addEventListener("click", debounceFn(clickHandler));
+
+  async function clickHandler() {
+    console.log(isUserOk, isPwdOk, isPhoneOk, isEmailOk);
+
+    // 点击提交时时验证
+    var e = new Event("blur");
+    userInp.dispatchEvent(e);
+    pwdInp.dispatchEvent(e);
+    phoneInp.dispatchEvent(e);
+    emailInp.dispatchEvent(e);
+
+    if (isUserOk && isPwdOk && isPhoneOk && isEmailOk) {
+      var user = userInp.value;
+      var pwd = pwdInp.value;
+      var phone = phoneInp.value;
+      var email = emailInp.value;
+
+      var result = await register({ user, pwd, phone, email });
+      var { status, message } = result;
+      if (status) {
+        // alert(message);
+        location.href = "./login.html";
+      } else {
+        alert(message);
+      }
+
+
+
+
+      // location.href = "./login.html";
+    }
+  }
+  async function focusHandler() {
+    // debugger;
+    var verifyType = this.getAttribute("verify");
+    if (!verifyType) return false;
+    var val = this.value;
+    console.log(val);
+    var tipsEle = next(this);
+    if (verifyType === "user") {
+      // 用户名格式是否正确
+      isUserOk = verify(verifyType, val, tipsEle, async function () {
+        var result = await isExistUser({ user: val });
+        var { status, message } = result;
+        if (status) {
+          tipsEle.textContent = "√";
+          tipsEle.className = "right";
+          isUserOk = true;
+        } else {
+          tipsEle.textContent = message;
+          tipsEle.className = "err";
+          isUserOk = false;
+        }
+      }, function () {
+        tipsEle.className = "err";
+      });
+    } else if (verifyType === "pwd") {
+      isPwdOk = verify(verifyType, val, tipsEle, function () {
+        tipsEle.className = "right";
+      }, function () {
+        tipsEle.className = "err";
+      });
+    } else if (verifyType === "phone") {
+      isPhoneOk = verify(verifyType, val, tipsEle, function () {
+        // 验证手机号是否已注册
+        //数据注册成功  => 通过后台提供的接口  => 存储数据库
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("get", "/account/phone?phone=" + val, true);
+
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var result = xhr.responseText;
+            console.log(result);
+            result = JSON.parse(result);
+            console.log(result);
+
+            var { status, message } = result;
+            if (status) {
+              tipsEle.textContent = "√";
+              tipsEle.className = "right";
+              isPhoneOk = true;
+            } else {
+              tipsEle.textContent = message;
+              tipsEle.className = "err";
+              isPhoneOk = false;
+            }
+          }
+        }
+      }, function () {
+        tipsEle.className = "err";
+      });
+    } else if (verifyType === "email") {
+      isEmailOk = verify(verifyType, val, tipsEle, function () {
+        // 验证邮箱是否已注册
+        //数据注册成功  => 通过后台提供的接口  => 存储数据库
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("get", "/account/email?email=" + val, true);
+
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var result = xhr.responseText;
+            console.log(result);
+            result = JSON.parse(result);
+            console.log(result);
+
+            var { status, message } = result;
+            if (status) {
+              tipsEle.textContent = "√";
+              tipsEle.className = "right";
+              isEmailOk = true;
+            } else {
+              tipsEle.textContent = message;
+              tipsEle.className = "err";
+              isEmailOk = false;
+            }
+          }
+        }
+      }, function () {
+        tipsEle.className = "err";
+      });
+    }
+  }
+</script>
+</html>

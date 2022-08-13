@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/resset.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/section.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <style>
+        .wrap-header {
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            width: 1226px;
+            height: 40px;
+            line-height: 40px;
+            margin: 0 auto;
+            font-size: 12px;
+        }
+
+        .site-nav-list {
+            display: flex;
+        }
+
+        .site-nav-list .site-nav-item {
+            padding: 0 20px;
+        }
+
+        .site-nav-sign a:nth-child(1) {
+            color: #f22e00;
+        }
+
+        .container {
+            width: 1226px;
+            margin: 0 auto;
+            margin-top: 100px;
+            display: flex;
+        }
+
+        .container .preview-wrap {
+            width: 400px;
+        }
+
+        .container .preview-wrap .preview {
+            position: relative;
+        }
+
+        .container .preview-wrap .preview-img {
+            width: 400px;
+            height: 400px;
+            position: relative;
+        }
+
+        .container .preview-wrap .preview-img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .container .preview-wrap .preview-img .shadow {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            display: none;
+        }
+
+        .spe-list {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .spe-list .item {
+            width: 80px;
+            height: 80px;
+            display: flex;
+        }
+
+        .spe-list .item img {
+            width: 100%;
+        }
+
+        .preview-wrap .preview-zoom {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            /* transform: translateX(20px); */
+            margin-left: 20px;
+            background-color: rgba(125, 255, 255, 0.5);
+            /* overflow: hidden; */
+            display: none;
+        }
+
+        .preview-wrap .preview-zoom img {
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        .container .itemInfo-wrap {
+            flex: 1;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <a href="index.html">
+                <span class="logo"></span>
+            </a>
+            <nav class="nav">
+                <ul>
+                    <li><a href="javascript:;">真我GT Neo2T</a>
+
+                    </li>
+                    <li><a href="javascript:;">真奇喵</a></li>
+                    <li>
+                        <a href="javascript:;">手机</a>
+                        <div class="nav-submenu">
+                            <div class="nav-submenu-wrapper">
+                                <div class="submenu-tabs">
+                                    <div class="secondary-menu hover">
+                                        <p>GT系列</p>
+                                        <i class="visible"></i>
+                                    </div>
+                                    <div class="secondary-menu">
+                                        <p>Q系列</p>
+                                        <i></i>
+                                    </div>
+                                    <div class="secondary-menu">
+                                        <p>V系列</p>
+                                        <i></i>
+                                    </div>
+                                    <div class="secondary-menu">
+                                        <p>X系列</p>
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="submenu-container visible">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT1.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p style="color: #2eb4cb;">新品</p>
+                                                    <p>真我GT Neo2T</p>
+                                                    <p class="nav-submenu-price">￥ 1,899</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT2.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT Neo2</p>
+                                                    <p class="nav-submenu-price">￥ 2,299</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT3.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT 大师探索版</p>
+                                                    <p class="nav-submenu-price">￥ 2,699</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT4.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT 大师版</p>
+                                                    <p class="nav-submenu-price">￥ 2,299</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT5.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT Neo 闪速版</p>
+                                                    <p class="nav-submenu-price">￥ 1,899</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT6.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT Neo 5G</p>
+                                                    <p class="nav-submenu-price">￥ 1,799</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT7.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT 5G</p>
+                                                    <p class="nav-submenu-price">￥ 2,499</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">AloT</a>
+                        <div class="nav-submenu">
+                            <div class="nav-submenu-wrapper">
+                                <div class="submenu-tabs">
+                                    <div class="secondary-menu hover">
+                                        <p>手表</p>
+                                        <i class="visible"></i>
+                                    </div>
+                                    <div class="secondary-menu">
+                                        <p>游戏配件</p>
+                                        <i></i>
+                                    </div>
+                                    <div class="secondary-menu">
+                                        <p>笔记本电脑</p>
+                                        <i></i>
+                                    </div>
+                                    <div class="secondary-menu">
+                                        <p>耳机</p>
+                                        <i></i>
+                                    </div>
+                                    <div class="secondary-menu">
+                                        <p>充电</p>
+                                        <i></i>
+                                    </div>
+                                    <div class="secondary-menu">
+                                        <p>服饰箱包</p>
+                                        <i></i>
+                                    </div>
+                                    <div class="secondary-menu">
+                                        <p>家具个护</p>
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <div class="submenu-container visible">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT1.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p style="color: #2eb4cb;">新品</p>
+                                                    <p>真我GT Neo2T</p>
+                                                    <p class="nav-submenu-price">￥ 1,899</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT2.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT Neo2</p>
+                                                    <p class="nav-submenu-price">￥ 2,299</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT3.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT 大师探索版</p>
+                                                    <p class="nav-submenu-price">￥ 2,699</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT4.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT 大师版</p>
+                                                    <p class="nav-submenu-price">￥ 2,299</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT5.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT Neo 闪速版</p>
+                                                    <p class="nav-submenu-price">￥ 1,899</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT6.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT Neo 5G</p>
+                                                    <p class="nav-submenu-price">￥ 1,799</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <div class="nav-submenu-img">
+                                                    <img src="../images/nav-GT7.png" alt="">
+                                                </div>
+                                                <div class="nav-submenu-info">
+                                                    <p>真我GT 5G</p>
+                                                    <p class="nav-submenu-price">￥ 2,499</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="javascript:;">所有产品</a></li>
+                    <li><a href="javascript:;">品牌</a></li>
+                    <li><a href="javascript:;">服务</a></li>
+                    <li><a href="javascript:;">社区</a></li>
+                    <li><a href="javascript:;">APP</a></li>
+                </ul>
+            </nav>
+            <div class="nav-right">
+                <a href="javascript:;">
+                    <span class="icon-user"></span>
+                </a>
+                <ul>
+                    <li><a href="cart.html">购物车</a></li>
+                    <li><a href="javascript:;">我的订单</a></li>
+                    <li><a href="javascript:;">优惠券</a></li>
+                    <li><a href="javascript:;">R码</a></li>
+                    <li><a href="javascript:;">我的评论</a></li>
+                    <li><a href="javascript:;">账户信息</a></li>
+                    <li><a href="javascript:;">我的地址</a></li>
+                    <li></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="wrap-header">
+            <div class="header">
+                <ul class="site-nav-list">
+                    <li class="site-nav-item">中国大陆</li>
+                    <li class="site-nav-item site-nav-login">
+                        <div class="site-nav-sign">
+                            <a href="./login.html">亲，请登录</a>
+                            <a href="./register.html">免费注册</a>
+                        </div>
+                        <!-- <div class="site-nav-user">
+                            <a href="javascript:;">欢迎,xxx</a>
+                            <a href="javascript:;">退出</a>
+                        </div> -->
+                    </li>
+                    <li class="site-nav-item">欢迎来到Real me网络商城</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="preview-wrap">
+            <!-- <div class="preview"> 
+                <div class="preview-img">
+                    <img class="small-img" src="../images/girlsmall1.jpg" alt="">
+                    <div class="shadow"></div>
+                </div>
+                
+                <div class="preview-zoom">
+                    <img class="big-img" src="../images/girlbig1.jpg" alt="">
+                </div>
+                
+                <div class="spe-list">
+                    <div class="item"><img src="../images/girlsmall1.jpg" alt=""></div>
+                    <div class="item"><img src="../images/girlsmall1.jpg" alt=""></div>
+                    <div class="item"><img src="../images/girlsmall1.jpg" alt=""></div>
+                    <div class="item"><img src="../images/girlsmall1.jpg" alt=""></div>
+                </div>
+            </div> -->
+        </div>
+        <!-- <div class="itemInfo-wrap">
+            <div class="sticky-container">
+                <div class="category-left">
+                    <div class="categroy-detail">
+                        <span class="info-name">真我GT Neo 5G 最终幻想 12GB+256GB</span>
+                    </div>
+                </div>
+                <div class="category-right">
+                    <div class="categroy-detail">
+                        <span class="info-pice">￥ 2399</span>
+                        <span class="info-reduce">-</span>
+                        <input type="number" class="buy-count" value="1">
+                        <span class="info-add">+</span>
+                    </div>
+                    <button class="add-shopping-car">添加购物车</button>
+                </div>
+            </div>
+
+        </div> -->
+        <div class="goods-swiper-r">
+            <!-- <div class="goods-basic">
+              <h1>
+                <span class="goods-name">真我GT Neo  5G</span>
+                <span>(</span>
+                <span>极客银 12GB+256GB</span>
+                <span>)</span>
+              </h1>
+              <div class="goods-price">
+                <span>￥</span>
+                <span>2399</span>
+              </div>
+            </div>
+            <div class="goods-activity">
+              <ul>
+                <li>
+                  <div>
+                    <div class="label">
+                      发　　货
+                    </div>
+                    <span class="desc">
+                      支付成功后，48小时内发货，顺丰包邮
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <div class="label">
+                      换　　新
+                    </div>
+                    <span class="desc">            
+                      以旧换新 至高额外返现300元
+                    </span>
+                    <a href="javascript:;">
+                      立即参与
+                      <span class="iconfont icon-xiangyoujiantou"></span>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <a href="javascript:;" class="goods-service">
+              <span class="icon icon-delivery-free"></span>
+              <span class="label">7天无理由退换</span>
+              <span class="icon icon-safe-payment"></span>
+              <span class="label">安全支付</span>
+              <span class="icon icon-huabei-black"></span>
+              <span class="label">花呗分期</span>
+            </a>
+            <div class="goods-select">
+              <h2 class="goods-select-title">版本</h2>
+              <div class="goods-select-group">
+                <a href="javascript:;" class="goods-select-item disabled selected">
+                  <span>12GB+256GB</span>
+                </a>
+                <a href="javascript:;" class="goods-select-item disabled ">
+                  <span>6GB+128GB</span>
+                </a>
+                <a href="javascript:;" class="goods-select-item disabled ">
+                  <span>8GB+128GB</span>
+                </a>
+              </div>
+              <h2 class="goods-select-title">数量</h2>
+              <div class="goods-select-group">
+                <div class="goods-select-count">
+                  <a href="javascript:;" class="disabled">
+                    <span class="icon minus">-</span>
+                  </a>
+                  <span class="num">1</span>
+                  <a href="javascript:;" class="disabled">
+                    <span class="icon plus">+</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="goods-summary">
+              <div class="goods-summary-list">
+                <ul>
+                  <li>
+                    <span class="name">最终幻想 12GB+256GB</span>
+                    <span class="number">x 1</span>
+                    <span class="price">￥ 2399</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="goods-summary-bar">
+                <div class="goods-summary-count">
+                  <span>总计</span>
+                  <div>
+                    <span class="currency">￥</span>
+                    <span class="price">2399</span>
+                  </div>
+                </div>
+                <div class="goods-summary-btns">
+                  <a href="javascript:;" class="btn btn-black">加入购物车</a>
+                  <a href="javascript:;" class="btn btn-primary">立即购买</a>
+                </div>
+              </div>
+            </div> -->
+        </div>
+        <div class="detail-box"></div>
+    </div>
+    <footer>
+        <a href="#">
+            <div class="sever-wrapper">
+                <div class="footer-sever">
+                    <span class="icon icon-7tian"></span>
+                    <span>7天无理由退货</span>
+                </div>
+                <div class="footer-sever">
+                    <span class="icon icon-huanhuo"></span>
+                    <span>手机30天换货保障</span>
+                </div>
+                <div class="footer-sever">
+                    <span class="icon icon-baoyou"></span>
+                    <span>满79包邮</span>
+                </div>
+                <div class="footer-sever">
+                    <span class="icon icon-zhengpin"></span>
+                    <span>正品保障</span>
+                </div>
+            </div>
+        </a>
+        <div class="footer-center">
+            <div class="footer-menus">
+                <div class="wrapper">
+                    <div class="footer-menu">
+                        <div class="footer-title">
+                            推荐产品
+                        </div>
+                        <ul class="footer-list">
+                            <li><a href="#">真我GT Neo2T</a></li>
+                            <li><a href="#">真我Q3s</a></li>
+                            <li><a href="#">真我GT Neo2 5G</a></li>
+                            <li><a href="#">真我GT 大师探索版 5G</a></li>
+                            <li><a href="#">真我GT Neo 闪速版 5G</a></li>
+                            <li><a href="#">真我GT 5G</a></li>
+                            <li><a href="#">真我Q3 Pro 5G</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-menu">
+                        <div class="footer-title">
+                            服务支持
+                        </div>
+                        <ul class="footer-list">
+                            <li><a href="#">配送方式</a></li>
+                            <li><a href="#">服务政策</a></li>
+                            <li><a href="#">常见问题</a></li>
+                            <li><a href="#">故障排除</a></li>
+                            <li><a href="#">预装应用公示</a></li>
+                            <li><a href="#">R码通道</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-menu">
+                        <div class="footer-title">
+                            关于我们
+                        </div>
+                        <ul class="footer-list">
+                            <li><a href="#">关于realme</a></li>
+                            <li><a href="#">ColorOS官网</a></li>
+                            <li><a href="#">realme社区</a></li>
+                            <li><a href="#">加入我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-menu">
+                        <div class="footer-title">
+                            联系我们
+                        </div>
+                        <ul class="footer-list">
+                            <li><a href="#">service.cn@realme.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <div class="footer-contact-phone">
+                    400-628-0066
+                </div>
+                <div class="footer-contact-time">
+                    8:00-20:00，周一至周日
+                </div>
+                <div class="footer-contact-online">
+                    <a href="#">
+                        <span class="iconfont icon-kefu"></span>
+                        &nbsp;在线客服
+                    </a>
+                </div>
+                <div class="footer-contact-time">
+                    9:00-22:00，周一至周日
+                </div>
+                <div class="footer-contact-socials">
+                    <a href="#" class="footer-wechat">
+                        <span class="icon icon-wechat"></span>
+                        <i></i>
+                    </a>
+                    <a href="#" class="footer-weibo">
+                        <span class="icon icon-weibo"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-region">
+            <a href="#">
+                Mainland China ( 简体中文 / CNY )
+            </a>
+        </div>
+        <div class="footer-bottom">
+            <div class="wrapper">
+                <div class="copyright">
+                    © 2019-2021 realme 版权所有. 渝ICP证20200030号
+                    <a href="#">渝ICP备19011033号-1</a>
+                    <a href="#">
+                        <span class=" icon icon-emblem"></span>
+                        渝公网安备 50011202501913号
+                    </a>
+                </div>
+                <div class="footer-legal">
+                    <a href="#">隐私政策</a>
+                    <a href="#">用户协议</a>
+                    <a href="#">政务政策</a>
+                    <a href="#">侵权投诉指引</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script type="module">
+    import "../js/jquery-3.6.0.min.js";
+    import { getCookie, deleteCookie } from "../js/cookie.js";
+    import { debounceFn } from "../js/tool-2.js";
+    import { searchGoodsByGid, addToCart } from "../js/interface.js";
+    import { paramsParse } from "../js/url.js";
+    import { slider, menuSwitch } from "../js/slider.js";
+
+    var siteNavLogin = document.getElementsByClassName("site-nav-login")[0];
+    var cookie = document.cookie;
+    if (cookie) {
+        var lgc = getCookie("lgc");
+        if (lgc) {
+            siteNavLogin.innerHTML = `<div class="site-nav-user">
+                        <a href="javascript:;">欢迎,<b>${lgc}</b></a>
+                        <a href="javascript:;" class="exit">退出</a>
+                    </div>`
+            var exit = document.getElementsByClassName("exit")[0];
+            exit.addEventListener("click", function () {
+                deleteCookie("lgc");
+                location.reload();
+            })
+
+        } else {
+            siteNavLogin.innerHTML = `<div class="site-nav-sign">
+                        <a href="./login.html">亲，请登录</a>
+                        <a href="./register.html">免费注册</a>
+                    </div>`;
+        }
+    }
+
+
+    var { gid } = paramsParse();
+    console.log(gid);
+
+    if (!gid) {
+        location.href = "../list.html";
+    }
+    var data = await searchGoodsByGid({ gid })
+    console.log(data);
+    var { status, message, data: { goodsId, goodsName, goodsPrice, goodsImg, smallPicList, bigPicList, goodsDetail } } = data;
+    if (status) {
+        $(".preview-wrap").html(`<div class="preview">
+                <!-- 放小图 -->
+                <div class="preview-img">
+                    <img class="small-img" src="${bigPicList[0]}" alt="">
+                    <div class="shadow"></div>
+                </div>
+                <!-- 放大图 -->
+                <div class="preview-zoom">
+                    <img class="big-img" src="${bigPicList[0]}" alt="">
+                </div>
+                <!-- 列表展示 -->
+                <div class="spe-list">
+                </div>
+            </div>`);
+        var html = "";
+        smallPicList.forEach((img) => {
+            html += `<div class="item"><img src="${img.replace(/s54x54_/g, "s200x200_")}" alt=""></div>`
+        })
+        $(".spe-list").html(html);
+        $(".goods-swiper-r").html(` <div class="goods-basic">
+          <h1>
+            <span class="goods-name">${goodsName}</span>
+          </h1>
+          <div class="goods-price">
+            <span>￥</span>
+            <span>${goodsPrice}</span>
+          </div>
+        </div>
+        <div class="goods-activity">
+          <ul>
+            <li>
+              <div>
+                <div class="label">
+                  发　　货
+                </div>
+                <span class="desc">
+                  支付成功后，48小时内发货，顺丰包邮
+                </span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <div class="label">
+                  换　　新
+                </div>
+                <span class="desc">            
+                  以旧换新 至高额外返现300元
+                </span>
+                <a href="javascript:;">
+                  立即参与
+                  <span class="iconfont icon-xiangyoujiantou"></span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <a href="javascript:;" class="goods-service">
+          <span class="icon icon-delivery-free"></span>
+          <span class="label">7天无理由退换</span>
+          <span class="icon icon-safe-payment"></span>
+          <span class="label">安全支付</span>
+          <span class="icon icon-huabei-black"></span>
+          <span class="label">花呗分期</span>
+        </a>
+        <h2 class="goods-select-title">版本</h2>
+          <div class="goods-select-group">
+            <a href="javascript:;" class="goods-select-item disabled selected">
+              <span>12GB+256GB</span>
+            </a>
+            <a href="javascript:;" class="goods-select-item disabled ">
+              <span>6GB+128GB</span>
+            </a>
+            <a href="javascript:;" class="goods-select-item disabled ">
+              <span>8GB+128GB</span>
+            </a>
+          </div>
+          <div class="info-count">
+                <span class="info-reduce">-</span>
+                <input type="number" class="buy-count" value="1">
+                <span class="info-add">+</span>
+                <button class="add-shopping-car">添加购物车</button>
+            </div>
+          
+`)
+
+        // $(".detail-box").html(goodsDetail);
+        $(function () {
+            $(".info-add").click(function () {
+                var $buyCount = $(this).prev();
+                var num = $buyCount.val();
+                num++;
+                $buyCount.val(num);
+                $(this).prev().prev().text("-");
+            })
+            $(".info-reduce").click(function () {
+                var $buyCount = $(this).next();
+                var num = $buyCount.val();
+                if (num == 1)
+                    return false;
+                num--;
+                if (num == 1) $(this).val("");
+                $buyCount.val(num);
+                $(this).prev().prev().text("-");
+            })
+        })
+        $(document).on("click", ".add-shopping-car", async function () {
+            var lgc = getCookie("lgc");
+            if (lgc) {
+                console.log("准备加入购物车");
+                var buyNum = $(".buy-count").val();
+                console.log(lgc, gid, buyNum);
+                var { status, message } = await addToCart({ user: lgc, gid, buyNum });
+                if (status) {
+                    if (confirm("购买成功,是否进入购物车?")) {
+                        location.href = "./cart.html";
+                    }
+                } else {
+                    alert(message);
+                }
+
+            } else {
+                location.href = "../list.html?returnUrl=" + encodeURIComponent(location.href);
+            }
+
+        })
+
+    } else {
+        location.href = "../list.html";
+    }
+
+
+
+</script>
+
+</html>
